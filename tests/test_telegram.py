@@ -1,4 +1,8 @@
-from input_mobile import telegram
+from input_mobile import telegram, send_sms
+
+
+def test_send_sms():
+    send_sms('Hello, Carlos!')
 
 
 def test_send_message():
