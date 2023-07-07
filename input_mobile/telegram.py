@@ -69,6 +69,10 @@ def input_(
     return None
 
 
-if __name__ == '__main__':
-    res = set_webhook()
-    print(res)
+def send_photo(filename, chat_id=os.environ["TELEGRAM_CHAT_ID"]):
+    url = f'https://api.telegram.org/bot{os.environ["TELEGRAM_TOKEN"]}/sendPhoto'
+    payload = {'chat_id': chat_id}
+    files = {'photo': open(filename, 'rb')}
+    r = requests.post(url, data=payload, files=files)
+    return r
+
